@@ -35,9 +35,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Wc_Endpoint_Highlighter {
     
     public function __construct() {
+        // Filter menu item and modify item label
         add_filter( 'wp_setup_nav_menu_item', array($this, 'highlight') );
     }
 
+    /**
+     * Add "WooCommerece Endpoint" label to all WooCommerce endpoint menu items
+     * @param  object $item Menu item object
+     * @return object       Modified menu item object
+     */
     public function highlight( $item ) {
         if ( ! function_exists( 'WC' ) ) {
             return $item;
@@ -55,6 +61,11 @@ class Wc_Endpoint_Highlighter {
         return $item;
     }
 
+    /**
+     * Extract WooCommerce endpoint from url.
+     * @param  string $url Url that contains WooCommerce endpoint
+     * @return string      Only WooCommerce endpoint
+     */
     private function get_endpoint( $url ) {
         $url = rtrim( $url, '/&' );
         
