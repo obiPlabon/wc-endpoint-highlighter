@@ -62,7 +62,7 @@ class Wc_Endpoint_Highlighter {
     }
 
     /**
-     * Extract WooCommerce endpoint from url.
+     * Extract WooCommerce endpoint from url
      * @param  string $url Url that contains WooCommerce endpoint
      * @return string      Only WooCommerce endpoint
      */
