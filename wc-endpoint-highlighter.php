@@ -32,10 +32,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die();
 }
 
-if ( ! function_exists( 'WC' ) ) {
-	return;
-}
-
 class Wc_Endpoint_Highlighter {
 	
 	public function __construct() {
@@ -43,6 +39,10 @@ class Wc_Endpoint_Highlighter {
 	}
 
 	public function highlight( $item ) {
+		if ( ! function_exists( 'WC' ) ) {
+			return $item;
+		}
+
 		$endpoints = WC()->query->query_vars;
 
 		if ( 'custom' === $item->type && (
