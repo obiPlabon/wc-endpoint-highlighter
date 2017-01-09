@@ -29,42 +29,42 @@ Copyright 2005-2015 Automattic, Inc.
 */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	die();
+    die();
 }
 
 class Wc_Endpoint_Highlighter {
-	
-	public function __construct() {
-		add_filter( 'wp_setup_nav_menu_item', array($this, 'highlight') );
-	}
+    
+    public function __construct() {
+        add_filter( 'wp_setup_nav_menu_item', array($this, 'highlight') );
+    }
 
-	public function highlight( $item ) {
-		if ( ! function_exists( 'WC' ) ) {
-			return $item;
-		}
+    public function highlight( $item ) {
+        if ( ! function_exists( 'WC' ) ) {
+            return $item;
+        }
 
-		$endpoints = WC()->query->query_vars;
+        $endpoints = WC()->query->query_vars;
 
-		if ( 'custom' === $item->type && (
-			array_key_exists( $this->get_endpoint( $item->url ), $endpoints ) ||
-			in_array( $this->get_endpoint( $item->url ), $endpoints ) ) ) {
+        if ( 'custom' === $item->type && (
+            array_key_exists( $this->get_endpoint( $item->url ), $endpoints ) ||
+            in_array( $this->get_endpoint( $item->url ), $endpoints ) ) ) {
 
-			$item->title = ucwords( str_replace( '-', ' ', $item->title ) );
-			$item->type_label = 'WooCommerce Endpoint';
-		}
-		return $item;
-	}
+            $item->title = ucwords( str_replace( '-', ' ', $item->title ) );
+            $item->type_label = 'WooCommerce Endpoint';
+        }
+        return $item;
+    }
 
-	public function get_endpoint( $url ) {
-		$url = rtrim( $url, '/&' );
+    public function get_endpoint( $url ) {
+        $url = rtrim( $url, '/&' );
 
-		if ( false !== strripos( $url, '&' ) ) {
-			$endpoint = strrchr( $url, '&' );
-		} else {
-			$endpoint = strrchr( $url, '/' );
-		}
-		return ltrim( $endpoint, '/&' );
-	}
+        if ( false !== strripos( $url, '&' ) ) {
+            $endpoint = strrchr( $url, '&' );
+        } else {
+            $endpoint = strrchr( $url, '/' );
+        }
+        return ltrim( $endpoint, '/&' );
+    }
 
 }
 
