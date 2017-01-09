@@ -55,9 +55,9 @@ class Wc_Endpoint_Highlighter {
         return $item;
     }
 
-    public function get_endpoint( $url ) {
+    private function get_endpoint( $url ) {
         $url = rtrim( $url, '/&' );
-
+        
         if ( false !== strripos( $url, '&' ) ) {
             $endpoint = strrchr( $url, '&' );
         } else {
