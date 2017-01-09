@@ -1,3 +1,5 @@
 # WC Endpoint Highlighter
 
-Download, Install & Activate this plugin. Your WooCommerce Endpoints menu item will be labeled as _WooCommerce Endpoint_
+Download, Install & Activate :D
+
+WooCommerce Endpoint menu items will be labeled as *WooCommerce Endpoint*
