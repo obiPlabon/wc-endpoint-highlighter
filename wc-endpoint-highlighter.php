@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: WC Endpoint Highlighter
-Plugin URI: 
+Plugin URI: https://github.com/obiPlabon/wc-endpoint-highlighter/
 Description: "WooCommerce Endpoint" label is added to all WooCommerce endpoint menu items.
 Version: 0.0.7
 Author: Obi Plabon
